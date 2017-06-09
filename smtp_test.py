@@ -37,6 +37,13 @@ msg['From'] = _format_addr('Python爱好者 <%s>' % from_addr)
 msg['To'] = _format_addr('管理员 <%s>' % to_addr)
 msg['Subject'] = Header('来自SMTP的问候……', 'utf-8').encode()
 
+# smtp_server = 'smtp.gmail.com'
+# smtp_port = 587
+# server = smtplib.SMTP(smtp_server, smtp_port)
+# server.starttls()
+# # 剩下的代码和前面的一模一样:
+# server.set_debuglevel(1)
+
 server = smtplib.SMTP_SSL(smtp_server, 465)  # SMTP协议默认端口25
 server.set_debuglevel(1)
 server.login(from_addr, password)
